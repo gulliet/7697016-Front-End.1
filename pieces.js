@@ -16,10 +16,10 @@ prixElement.innerText = `Prix : ${article.prix} € (${
 })`;
 
 const categorieElement = document.createElement("p");
-categorieElement.innerText = article.categorie;
+categorieElement.innerText = article.categorie ?? "(aucune catégorie)";
 
 const sectionFiches = document.querySelector(".fiches");
 sectionFiches.appendChild(imageElement);
 sectionFiches.appendChild(nomElement);
 sectionFiches.appendChild(prixElement);
-sectionFiche.appendChild(categorieElement);
+sectionFiches.appendChild(categorieElement);
