@@ -46,5 +46,22 @@ btnTrier.addEventListener("click", () => {
     piecesOrdonnees.sort((a, b) => {
         return a.prix - b.prix;
     });
+    console.log(pieces);
     console.log(piecesOrdonnees);
+});
+
+const btnFilter = document.querySelector(".btn-filtrer");
+btnFilter.addEventListener("click", () => {
+    const piecesFiltrees = pieces.filter((piece) => {
+        return piece.prix <= 35;
+    });
+    console.log(piecesFiltrees);
+});
+
+const btnNoDescrip = document.querySelector(".btn-nodescrip");
+btnNoDescrip.addEventListener("click", () => {
+    const piecesFiltrees = pieces.filter((piece) => {
+        return piece.description == null;
+    });
+    console.log(piecesFiltrees);
 });
