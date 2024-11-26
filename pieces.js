@@ -50,6 +50,17 @@ btnTrier.addEventListener("click", () => {
     console.log(piecesOrdonnees);
 });
 
+const btnTrierDecroissant = document.querySelector(".btn-trier-decroissant");
+btnTrierDecroissant.addEventListener("click", () => {
+    const piecesOrdonnees = Array.from(pieces);
+
+    piecesOrdonnees.sort((a, b) => {
+        return -1 * (a.prix - b.prix);
+    });
+    console.log(pieces);
+    console.log(piecesOrdonnees);
+});
+
 const btnFilter = document.querySelector(".btn-filtrer");
 btnFilter.addEventListener("click", () => {
     const piecesFiltrees = pieces.filter((piece) => {
