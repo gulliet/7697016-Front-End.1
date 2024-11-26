@@ -41,8 +41,10 @@ for (let i = 0; i < pieces.length; i++) {
 
 const btnTrier = document.querySelector(".btn-trier");
 btnTrier.addEventListener("click", () => {
-    pieces.sort((a, b) => {
+    const piecesOrdonnees = Array.from(pieces);
+
+    piecesOrdonnees.sort((a, b) => {
         return a.prix - b.prix;
     });
-    console.log(pieces);
+    console.log(piecesOrdonnees);
 });
