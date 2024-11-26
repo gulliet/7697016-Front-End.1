@@ -2,35 +2,39 @@
 const reponse = await fetch("pieces-autos.json");
 const pieces = await reponse.json();
 
-const article = pieces[0];
+for (let i = 0; i < pieces.length; i++) {
+    const sectionFiches = document.querySelector(".fiches");
 
-const imageElement = document.createElement("img");
-imageElement.src = article.image;
+    const article = pieces[i];
+    const pieceElement = document.createElement("article");
 
-const nomElement = document.createElement("h2");
-nomElement.innerText = article.nomElement;
+    const imageElement = document.createElement("img");
+    imageElement.src = article.image;
 
-const prixElement = document.createElement("p");
-prixElement.innerText = `Prix : ${article.prix} € (${
-    article.prix < 35 ? "€" : "€€€"
-})`;
+    const nomElement = document.createElement("h2");
+    nomElement.innerText = article.nomElement;
 
-const categorieElement = document.createElement("p");
-categorieElement.innerText = article.categorie ?? "(aucune catégorie)";
+    const prixElement = document.createElement("p");
+    prixElement.innerText = `Prix : ${article.prix} € (${
+        article.prix < 35 ? "€" : "€€€"
+    })`;
 
-const descriptionElement = document.createElement("p");
-descriptionElement.innerText =
-    article.description ?? "Pas de description pour le moment";
+    const categorieElement = document.createElement("p");
+    categorieElement.innerText = article.categorie ?? "(aucune catégorie)";
 
-const disponibiliteElement = document.createElement("p");
-disponibiliteElement.innerText = `${
-    article.disponibilite ? "En stock" : "Rupture de stock"
-}`;
+    const descriptionElement = document.createElement("p");
+    descriptionElement.innerText =
+        article.description ?? "Pas de description pour le moment";
 
-const sectionFiches = document.querySelector(".fiches");
-sectionFiches.appendChild(imageElement);
-sectionFiches.appendChild(nomElement);
-sectionFiches.appendChild(prixElement);
-sectionFiches.appendChild(categorieElement);
-sectionFiches.appendChild(descriptionElement);
-sectionFiches.appendChild(disponibiliteElement);
+    const disponibiliteElement = document.createElement("p");
+    disponibiliteElement.innerText = `${
+        article.disponibilite ? "En stock" : "Rupture de stock"
+    }`;
+
+    sectionFiches.appendChild(imageElement);
+    sectionFiches.appendChild(nomElement);
+    sectionFiches.appendChild(prixElement);
+    sectionFiches.appendChild(categorieElement);
+    sectionFiches.appendChild(descriptionElement);
+    sectionFiches.appendChild(disponibiliteElement);
+}
